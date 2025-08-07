@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MoodBeats - Mood Based Music</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .buttons {
+      margin: 1.5rem 0;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .playlist {
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .playlist ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .playlist li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -21,6 +79,37 @@
     <div id="playlist" class="playlist"></div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const playlists = {
+      happy: [
+        "🎶 Happy - Pharrell Williams",
+        "🎶 Best Day of My Life - American Authors",
+        "🎶 Walking on Sunshine - Katrina and The Waves"
+      ],
+      sad: [
+        "💔 Someone Like You - Adele",
+        "💔 Let Her Go - Passenger",
+        "💔 Fix You - Coldplay"
+      ],
+      energetic: [
+        "⚡ Can't Stop The Feeling! - Justin Timberlake",
+        "⚡ Uptown Funk - Bruno Mars",
+        "⚡ Thunder - Imagine Dragons"
+      ],
+      calm: [
+        "🌙 Weightless - Marconi Union",
+        "🌙 Ocean Eyes - Billie Eilish",
+        "🌙 River Flows in You - Yiruma"
+      ]
+    };
+
+    function showPlaylist(mood) {
+      const list = playlists[mood];
+      const playlistDiv = document.getElementById("playlist");
+      playlistDiv.innerHTML = `<h2>${mood.charAt(0).toUpperCase() + mood.slice(1)} Playlist</h2><ul>` +
+        list.map(song => `<li>${song}</li>`).join('') +
+        `</ul>`;
+    }
+  </script>
 </body>
 </html>
