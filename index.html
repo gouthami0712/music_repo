@@ -2,113 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MoodBeats - Mood Based Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laptop Price Estimator</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-      color: #333;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
       padding: 2rem;
+      text-align: center;
     }
 
     .container {
-      max-width: 600px;
+      max-width: 500px;
       margin: auto;
       background: #fff;
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      color: #333;
     }
 
-    .buttons {
-      margin: 1.5rem 0;
-    }
-
-    button {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
+    select, button {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
     }
 
-    button:hover {
-      background-color: #ff1493;
-    }
-
-    .playlist {
-      margin-top: 2rem;
-      text-align: left;
-    }
-
-    .playlist ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .playlist li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
+    #result {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #007b00;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>MoodBeats 🎵</h1>
-    <p>Select your mood and get a playlist!</p>
+    <h1>Laptop Price Estimator 💻</h1>
 
-    <div class="buttons">
-      <button onclick="showPlaylist('happy')">😊 Happy</button>
-      <button onclick="showPlaylist('sad')">😢 Sad</button>
-      <button onclick="showPlaylist('energetic')">⚡ Energetic</button>
-      <button onclick="showPlaylist('calm')">🌙 Calm</button>
-    </div>
+    <label for="cpu">Select CPU:</label>
+    <select id="cpu">
+      <option value="10000">Intel i3</option>
+      <option value="20000">Intel i5</option>
+      <option value="30000">Intel i7</option>
+      <option value="35000">Intel i9</option>
+    </select>
 
-    <div id="playlist" class="playlist"></div>
+    <label for="ram">Select RAM:</label>
+    <select id="ram">
+      <option value="4000">4 GB</option>
+      <option value="8000">8 GB</option>
+      <option value="12000">16 GB</option>
+      <option value="18000">32 GB</option>
+    </select>
+
+    <label for="storage">Select Storage:</label>
+    <select id="storage">
+      <option value="5000">256 GB SSD</option>
+      <option value="8000">512 GB SSD</option>
+      <option value="12000">1 TB SSD</option>
+    </select>
+
+    <label for="screen">Select Screen Size:</label>
+    <select id="screen">
+      <option value="4000">13 inch</option>
+      <option value="6000">15 inch</option>
+      <option value="8000">17 inch</option>
+    </select>
+
+    <button onclick="estimatePrice()">Estimate Price</button>
+
+    <div id="result"></div>
   </div>
 
   <script>
-    const playlists = {
-      happy: [
-        "🎶 Happy - Pharrell Williams",
-        "🎶 Best Day of My Life - American Authors",
-        "🎶 Walking on Sunshine - Katrina and The Waves"
-      ],
-      sad: [
-        "💔 Someone Like You - Adele",
-        "💔 Let Her Go - Passenger",
-        "💔 Fix You - Coldplay"
-      ],
-      energetic: [
-        "⚡ Can't Stop The Feeling! - Justin Timberlake",
-        "⚡ Uptown Funk - Bruno Mars",
-        "⚡ Thunder - Imagine Dragons"
-      ],
-      calm: [
-        "🌙 Weightless - Marconi Union",
-        "🌙 Ocean Eyes - Billie Eilish",
-        "🌙 River Flows in You - Yiruma"
-      ]
-    };
+    function estimatePrice() {
+      const cpu = parseInt(document.getElementById("cpu").value);
+      const ram = parseInt(document.getElementById("ram").value);
+      const storage = parseInt(document.getElementById("storage").value);
+      const screen = parseInt(document.getElementById("screen").value);
 
-    function showPlaylist(mood) {
-      const list = playlists[mood];
-      const playlistDiv = document.getElementById("playlist");
-      playlistDiv.innerHTML = `<h2>${mood.charAt(0).toUpperCase() + mood.slice(1)} Playlist</h2><ul>` +
-        list.map(song => `<li>${song}</li>`).join('') +
-        `</ul>`;
+      const basePrice = 10000;
+      const totalPrice = basePrice + cpu + ram + storage + screen;
+
+      document.getElementById("result").innerText = "Estimated Price: ₹" + totalPrice.toLocaleString();
     }
   </script>
 </body>
