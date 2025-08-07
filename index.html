@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoodBeats - Mood Based Music</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>MoodBeats 🎵</h1>
+    <p>Select your mood and get a playlist!</p>
+
+    <div class="buttons">
+      <button onclick="showPlaylist('happy')">😊 Happy</button>
+      <button onclick="showPlaylist('sad')">😢 Sad</button>
+      <button onclick="showPlaylist('energetic')">⚡ Energetic</button>
+      <button onclick="showPlaylist('calm')">🌙 Calm</button>
+    </div>
+
+    <div id="playlist" class="playlist"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
