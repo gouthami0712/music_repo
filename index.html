@@ -3,96 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Laptop Price Estimator</title>
+  <title>DevOps Lifecycle</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f0f0;
+      background-color: #000;
+      color: #fff;
       padding: 2rem;
-      text-align: center;
+      display: flex;
+      justify-content: center;
     }
 
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .lifecycle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    h1 {
-      color: #333;
-    }
-
-    select, button {
-      width: 100%;
-      padding: 0.7rem;
-      margin: 1rem 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    #result {
-      font-size: 1.3rem;
+    .step {
+      background-color: #fff;
+      color: #000;
+      width: 120px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0;
       font-weight: bold;
-      margin-top: 1rem;
-      color: #007b00;
+    }
+
+    .arrow {
+      font-size: 24px;
+      margin: -10px 0;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Laptop Price Estimator 💻</h1>
-
-    <label for="cpu">Select CPU:</label>
-    <select id="cpu">
-      <option value="10000">Intel i3</option>
-      <option value="20000">Intel i5</option>
-      <option value="30000">Intel i7</option>
-      <option value="35000">Intel i9</option>
-    </select>
-
-    <label for="ram">Select RAM:</label>
-    <select id="ram">
-      <option value="4000">4 GB</option>
-      <option value="8000">8 GB</option>
-      <option value="12000">16 GB</option>
-      <option value="18000">32 GB</option>
-    </select>
-
-    <label for="storage">Select Storage:</label>
-    <select id="storage">
-      <option value="5000">256 GB SSD</option>
-      <option value="8000">512 GB SSD</option>
-      <option value="12000">1 TB SSD</option>
-    </select>
-
-    <label for="screen">Select Screen Size:</label>
-    <select id="screen">
-      <option value="4000">13 inch</option>
-      <option value="6000">15 inch</option>
-      <option value="8000">17 inch</option>
-    </select>
-
-    <button onclick="estimatePrice()">Estimate Price</button>
-
-    <div id="result"></div>
+  <div class="lifecycle">
+    <div class="step">Plan</div>
+    <div class="arrow">⬇️</div>
+    <div class="step">Develop</div>
+    <div class="arrow">⬇️</div>
+    <div class="step">Build</div>
+    <div class="arrow">⬇️</div>
+    <div class="step">Test</div>
+    <div class="arrow">⬇️</div>
+    <div class="step">Release</div>
+    <div class="arrow">⬇️</div>
+    <div class="step">Deploy</div>
+    <div class="arrow">⬇️</div>
+    <div class="step">Operate</div>
+    <div class="arrow">⬇️</div>
+    <div class="step">Monitor</div>
   </div>
-
-  <script>
-    function estimatePrice() {
-      const cpu = parseInt(document.getElementById("cpu").value);
-      const ram = parseInt(document.getElementById("ram").value);
-      const storage = parseInt(document.getElementById("storage").value);
-      const screen = parseInt(document.getElementById("screen").value);
-
-      const basePrice = 10000;
-      const totalPrice = basePrice + cpu + ram + storage + screen;
-
-      document.getElementById("result").innerText = "Estimated Price: ₹" + totalPrice.toLocaleString();
-    }
-  </script>
 </body>
 </html>
